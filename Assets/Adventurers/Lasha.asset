@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e3d2f3c194d1124bb9f4d992d8f5276, type: 3}
+  m_Name: Lasha
+  m_EditorClassIdentifier: 
+  name: Lasha Kinnyrawr
+  sprite: {fileID: 1849375602511041895, guid: a81e595b4ad3df84d93bd5e1a273c0e3, type: 3}
+  race: 1
+  adventurerClass: 0
+  traits:
+  - {fileID: 11400000, guid: fb93e13c26df3d34d86b03d635dc9e8f, type: 2}
