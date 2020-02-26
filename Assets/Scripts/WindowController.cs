@@ -24,7 +24,7 @@ public class WindowController : MonoBehaviour
         state = WindowState.CLOSED;
         windows = new Dictionary<string, ControlledWindow>();
         windows.Add("empty", GameObject.Find("EmptyPanel").GetComponent<ControlledWindow>() );
-        windows.Add("adventurer", GameObject.Find("AdvPanel").GetComponent<ControlledWindow>() );
+        windows.Add("adventurer", GameObject.Find("AdventurerWindow").GetComponent<ControlledWindow>() );
         activeWindow = windows["empty"];
     }
 
@@ -41,5 +41,11 @@ public class WindowController : MonoBehaviour
         activeWindow.ShowWindow();
         AdventurerWindow advWindow = (AdventurerWindow) activeWindow;
         advWindow.SetAdventurer(adventurer);
+    }
+
+    public void CloseWindow()
+    {
+        activeWindow.HideWindow();
+        activeWindow = windows["empty"];
     }
 }
