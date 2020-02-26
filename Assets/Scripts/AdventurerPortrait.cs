@@ -13,7 +13,7 @@ public class AdventurerPortrait : MonoBehaviour, IPointerDownHandler
     public WindowController windowController;
     public void OnPointerDown(PointerEventData eventData)
     {
-        windowController.setAdventurer(adventurer);
+        windowController.ShowAdventurerWindow(adventurer);
     }
     
     // Start is called before the first frame update
@@ -21,7 +21,7 @@ public class AdventurerPortrait : MonoBehaviour, IPointerDownHandler
     {
         windowController = GameObject.Find("WindowController").GetComponent<WindowController>();
         nameText.text = adventurer.name;
-        renderer.sprite = adventurer.sprite;
+        renderer.sprite = adventurer.portrait;
     }
 
     // Update is called once per frame
