@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: Lasha
   m_EditorClassIdentifier: 
   name: Lasha Kinnyrawr
-  sprite: {fileID: 1849375602511041895, guid: a81e595b4ad3df84d93bd5e1a273c0e3, type: 3}
+  level: 1
+  portrait: {fileID: 1849375602511041895, guid: a81e595b4ad3df84d93bd5e1a273c0e3,
+    type: 3}
+  sprite: {fileID: 21300000, guid: d140ea590be40c24583d15c8e9db9a8d, type: 3}
   race: 1
   adventurerClass: 0
   traits:
