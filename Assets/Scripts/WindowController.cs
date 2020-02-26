@@ -31,25 +31,15 @@ public class WindowController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        activeWindow.HideWindow();
-        switch (state)
-        {
-            case WindowState.CLOSED:
-            {
-                break;
-            } 
-            case WindowState.ADVENTURER: 
-            {
-                activeWindow = windows["adventurer"];
-                activeWindow.ShowWindow();
-                break;
-            }
-            default: break;
-        }
+
     }
 
-    public void setAdventurer(Adventurer adv)
+    public void ShowAdventurerWindow(Adventurer adventurer)
     {
         state = WindowState.ADVENTURER;
+        activeWindow = windows["adventurer"];
+        activeWindow.ShowWindow();
+        AdventurerWindow advWindow = (AdventurerWindow) activeWindow;
+        advWindow.SetAdventurer(adventurer);
     }
 }
