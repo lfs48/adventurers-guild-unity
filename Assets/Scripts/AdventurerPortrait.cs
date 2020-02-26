@@ -8,9 +8,12 @@ public class AdventurerPortrait : MonoBehaviour
 {
     public Adventurer adventurer;
     public SpriteRenderer renderer;
+    public TextMeshProUGUI nameText;
+    
     // Start is called before the first frame update
     void Start()
     {
+        nameText.text = adventurer.name;
         renderer.sprite = adventurer.sprite;
     }
 
