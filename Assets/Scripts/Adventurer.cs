@@ -6,7 +6,8 @@ using UnityEngine;
 public class Adventurer : ScriptableObject
 {
     public new string name;
-    public Sprite sprite;
+    public int level;
+    public Sprite portrait, sprite;
     public Race race;
     public AdventurerClass adventurerClass;
     public Trait[] traits;
