@@ -6,8 +6,13 @@ public class RosterSidebar : MonoBehaviour
 {
     public Player player;
     public AdventurerPortrait advPortraitPrefab;
-    public Transform sidebar;
+    private Transform tf;
     // Start is called before the first frame update
+
+    void Awake()
+    {
+        tf = GetComponent<Transform>();
+    }
     void Start()
     {
         setupRoster();
@@ -18,7 +23,7 @@ public class RosterSidebar : MonoBehaviour
         Adventurer[] roster = player.roster;
         for (int i = 0; i < roster.Length; i++)
         {
-            AdventurerPortrait portrait = Instantiate(advPortraitPrefab, sidebar);
+            AdventurerPortrait portrait = Instantiate(advPortraitPrefab, tf);
             portrait.adventurer = roster[i];
             portrait.transform.position = new Vector3(-6.271f,3.269f - (i*0.978f) , 0);
         }
