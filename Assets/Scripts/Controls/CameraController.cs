@@ -48,14 +48,16 @@ public class CameraController : MonoBehaviour
             {
                 dragging = false;
             }
+
+            float zoom = camera.orthographicSize;
+            zoom -= Input.GetAxis("Mouse ScrollWheel") * scrollSpeed * Time.deltaTime;
+            zoom = Mathf.Clamp(zoom, zoomLimitMin, zoomLimitMax);
+            camera.orthographicSize = zoom;
+            panLimit = new Vector2( (-1.62f * zoom) + 16.25f, (-0.87f *zoom) + 8.75f);
         }
         
 
-        float zoom = camera.orthographicSize;
-        zoom -= Input.GetAxis("Mouse ScrollWheel") * scrollSpeed * Time.deltaTime;
-        zoom = Mathf.Clamp(zoom, zoomLimitMin, zoomLimitMax);
-        camera.orthographicSize = zoom;
-        panLimit = new Vector2( (-1.62f * zoom) + 16.25f, (-0.87f *zoom) + 8.75f);
+
 
         pos.x = Mathf.Clamp(pos.x, -panLimit.x, panLimit.x);
         pos.y = Mathf.Clamp(pos.y, -panLimit.y, panLimit.y);
