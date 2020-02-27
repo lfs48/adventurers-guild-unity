@@ -10,5 +10,5 @@ public class Adventurer : ScriptableObject
     public Sprite portrait, sprite;
     public Race race;
     public AdventurerClass adventurerClass;
-    public Trait[] traits;
+    public List<Trait> traits;
 }
