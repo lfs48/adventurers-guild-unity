@@ -5,48 +5,37 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     // Start is called before the first frame update
-    private float panSpeed, panBorderThickness, scrollSpeed, zoomLimitMin, zoomLimitMax;
-    private Vector2 panLimit, zoomLimit;
+    private float panSpeed, scrollSpeed, zoomLimitMin, zoomLimitMax;
+    private Vector2 panLimit;
+    private Vector3 touchStart;
     private Camera camera;
     private Transform transform;
 
     void Awake()
     {
-        camera = GetComponent<Camera>();
-        transform = GetComponent<Transform>();
+        camera = Camera.main;
+        transform = Camera.main.transform;
         InitializeSettings();
     }
 
     private void InitializeSettings()
     {
-        panSpeed = 200f;
-        panBorderThickness = 150f;
+        panSpeed = 0.01f;
         scrollSpeed = 500f;
         zoomLimitMin = 2f;
         zoomLimitMax = 10f;
     }
     void Update()
     {
-        Vector3 pos = transform.position;
-
-        if (Input.GetKey("w") || ( (Input.mousePosition.y >= Screen.height - panBorderThickness) && Input.mousePosition.y < Screen.height) )
+        Vector3 pos = camera.transform.position;
+        if (Input.GetMouseButtonDown(0))
         {
-            pos.y += panSpeed / Mathf.Max(10, (Screen.height - Input.mousePosition.y ) ) * Time.deltaTime;
+            touchStart = camera.ScreenToWorldPoint(Input.mousePosition);
         }
-
-        if (Input.GetKey("a")  || ( (Input.mousePosition.x <= panBorderThickness) && Input.mousePosition.x > 0) )
+        if (Input.GetMouseButton(0))
         {
-            pos.x -= panSpeed / Mathf.Max(10, (Input.mousePosition.x) ) * Time.deltaTime;
-        }
-
-        if (Input.GetKey("s")  || ( (Input.mousePosition.y <= panBorderThickness) && Input.mousePosition.y > 0) )
-        {
-            pos.y -= panSpeed / Mathf.Max(10, (Input.mousePosition.y) ) * Time.deltaTime;
-        }
-
-        if (Input.GetKey("d")  || ( (Input.mousePosition.x >= Screen.width - panBorderThickness) && Input.mousePosition.x < Screen.width) )
-        {
-            pos.x += panSpeed / Mathf.Max(10, (Screen.width - Input.mousePosition.x ) ) * Time.deltaTime;
+            Vector3 direction = touchStart - camera.ScreenToWorldPoint(Input.mousePosition);
+            pos += direction * panSpeed;
         }
 
         float zoom = camera.orthographicSize;
