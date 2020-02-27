@@ -15,4 +15,5 @@ MonoBehaviour:
   name: Lightning Bolt
   description: Can blast foes with electricity. Particularly effective against aquatic
     enemies.
+  source: Class
   value: 5

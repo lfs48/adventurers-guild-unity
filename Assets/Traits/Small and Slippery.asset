@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 24acb8b5336520f4c8895886b76e50f0, type: 3}
-  m_Name: Brawny
+  m_Name: Small and Slippery
   m_EditorClassIdentifier: 
-  name: Brawny
-  description: Able to duke it out in a fistfight.
-  source: Class
+  name: Small and Slippery
+  description: placeholder
+  source: Race
   value: 2
