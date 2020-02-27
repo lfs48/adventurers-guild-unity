@@ -6,6 +6,7 @@ public class RosterSidebar : MonoBehaviour
 {
     public Player player;
     public AdventurerPortrait advPortraitPrefab;
+    public Transform contentContainer;
     private Transform tf;
     private List<Adventurer> roster;
     // Start is called before the first frame update
@@ -24,17 +25,15 @@ public class RosterSidebar : MonoBehaviour
         roster = player.roster;
         for (int i = 0; i < roster.Count; i++)
         {
-            AdventurerPortrait portrait = Instantiate(advPortraitPrefab, tf);
+            AdventurerPortrait portrait = Instantiate(advPortraitPrefab, contentContainer);
             portrait.adventurer = roster[i];
-            portrait.transform.position = new Vector3(-6.271f,3.269f - (i*0.978f) , 0);
         }
     }
 
     public void AddAdventurerToRoster(Adventurer adventurer)
     {
-        AdventurerPortrait portrait = Instantiate(advPortraitPrefab, tf);
+        AdventurerPortrait portrait = Instantiate(advPortraitPrefab, contentContainer);
         portrait.adventurer = adventurer;
-        portrait.transform.position = new Vector3(-6.271f,3.269f - ( roster.Count *0.978f) , 0);
         roster.Add(adventurer);
     }
 
