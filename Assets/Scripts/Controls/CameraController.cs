@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CameraController : MonoBehaviour
 {
     // Start is called before the first frame update
     private float panSpeed, scrollSpeed, zoomLimitMin, zoomLimitMax;
+    private bool dragging;
     private Vector2 panLimit;
     private Vector3 touchStart;
     private Camera camera;
@@ -16,6 +18,7 @@ public class CameraController : MonoBehaviour
         camera = Camera.main;
         transform = Camera.main.transform;
         InitializeSettings();
+        dragging = false;
     }
 
     private void InitializeSettings()
@@ -27,16 +30,26 @@ public class CameraController : MonoBehaviour
     }
     void Update()
     {
-        Vector3 pos = camera.transform.position;
-        if (Input.GetMouseButtonDown(0))
+        Vector3 pos = transform.position;
+        if (!EventSystem.current.IsPointerOverGameObject())
         {
-            touchStart = camera.ScreenToWorldPoint(Input.mousePosition);
+            if (Input.GetMouseButtonDown(0))
+            {
+                touchStart = camera.ScreenToWorldPoint(Input.mousePosition);
+                dragging = true;
+            }
+            if (dragging && Input.GetMouseButton(0))
+            {
+                Vector3 direction = touchStart - camera.ScreenToWorldPoint(Input.mousePosition);
+                pos += direction * panSpeed;
+                dragging = true;
+            }
+            if (Input.GetMouseButtonUp(0))
+            {
+                dragging = false;
+            }
         }
-        if (Input.GetMouseButton(0))
-        {
-            Vector3 direction = touchStart - camera.ScreenToWorldPoint(Input.mousePosition);
-            pos += direction * panSpeed;
-        }
+        
 
         float zoom = camera.orthographicSize;
         zoom -= Input.GetAxis("Mouse ScrollWheel") * scrollSpeed * Time.deltaTime;
