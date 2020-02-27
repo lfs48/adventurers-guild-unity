@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public Adventurer[] roster;
+    public List<Adventurer> roster;
     // Start is called before the first frame update
     void Start()
     {
-
+        roster = new List<Adventurer>();
     }
 
     // Update is called once per frame
