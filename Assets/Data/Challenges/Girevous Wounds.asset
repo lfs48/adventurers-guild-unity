@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9088e2e1dc134f4795007b113538c4c, type: 3}
+  m_Name: Girevous Wounds
+  m_EditorClassIdentifier: 
+  name: Grievous Wounds
+  description: 
+  value: 4
+  relevantTraits:
+  - {fileID: 11400000, guid: 4a1e5b7eae775ff46b16b9173f2b26ff, type: 2}
+  - {fileID: 11400000, guid: ce565a93a511c0242ba4528c7bc9b014, type: 2}
