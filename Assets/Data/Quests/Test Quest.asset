@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e24cbe42a31a98468eda9656ede1d2c, type: 3}
   m_Name: Test Quest
   m_EditorClassIdentifier: 
+  name: Test
+  description: Testiiiiing
   challenges:
   - {fileID: 11400000, guid: e6dfd4ec095f91e4191c7c4c7f0e293c, type: 2}
   - {fileID: 11400000, guid: 5faae4a2bb08d274ca80533410d1bf2f, type: 2}
