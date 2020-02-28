@@ -24,7 +24,7 @@ public class AdventurerManager : MonoBehaviour
     private void ReadNamesFromFile()
     {
         names = new List<string>();
-        string path = Application.dataPath + "/Names.txt";
+        string path = Application.dataPath + "/Data/Names.txt";
         foreach (string line in File.ReadLines(path))
         {
             names.Add(line);
