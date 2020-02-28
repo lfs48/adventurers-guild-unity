@@ -21,3 +21,4 @@ MonoBehaviour:
   adventurerClass: 2
   traits:
   - {fileID: 11400000, guid: 16fab49b80b7f064da818ab7013241fe, type: 2}
+  - {fileID: 11400000, guid: 4a1e5b7eae775ff46b16b9173f2b26ff, type: 2}
