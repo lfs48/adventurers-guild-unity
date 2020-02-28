@@ -5,8 +5,12 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
 
-public class AdventurerPortrait : MonoBehaviour, IPointerDownHandler
+public class AdventurerPortrait : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
+    public RectTransform rectTransform, bar;
+    public SpriteRenderer dragSprite;
+    [SerializeField] private Canvas canvas;
+    private Vector3 originalPos;
     public Adventurer adventurer;
     public Image image;
     public TextMeshProUGUI nameText;
@@ -14,6 +18,25 @@ public class AdventurerPortrait : MonoBehaviour, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         windowController.ShowAdventurerWindow(adventurer);
+        bar.localScale = new Vector3(0,0,0);
+        dragSprite.transform.localScale = new Vector3(50,50,1);
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(eventData.position);
+        originalPos = rectTransform.position;
+        rectTransform.position = new Vector3(mousePos.x, mousePos.y, rectTransform.position.z);
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        windowController.ShowAdventurerWindow(adventurer);
+        bar.localScale = new Vector3(1,1,1);
+        dragSprite.transform.localScale = new Vector3(0,0,0);
+        rectTransform.position = originalPos;
+    }
+
+    private void Awake() {
+        rectTransform = GetComponent<RectTransform>();
+        GameObject temp = GameObject.Find("MainCanvas");
+        canvas = temp.GetComponent<Canvas>();
     }
     
     // Start is called before the first frame update
@@ -22,6 +45,7 @@ public class AdventurerPortrait : MonoBehaviour, IPointerDownHandler
         windowController = GameObject.Find("WindowController").GetComponent<WindowController>();
         nameText.text = adventurer.name;
         image.sprite = adventurer.portrait;
+        dragSprite.sprite = adventurer.portrait;
     }
 
     // Update is called once per frame
@@ -29,4 +53,10 @@ public class AdventurerPortrait : MonoBehaviour, IPointerDownHandler
     {
         
     }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+    }
+
 }
