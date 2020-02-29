@@ -15,7 +15,7 @@ public class AdventurerPortrait : MonoBehaviour, IPointerDownHandler, IPointerUp
     public Image image;
     public TextMeshProUGUI nameText;
     public WindowController windowController;
-    public AdventurerAssign advAssign;
+    public AdventurerAssignManager advAssign;
     public void OnPointerDown(PointerEventData eventData)
     {
         windowController.ShowAdventurerWindow(adventurer);
@@ -35,7 +35,7 @@ public class AdventurerPortrait : MonoBehaviour, IPointerDownHandler, IPointerUp
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(eventData.position);
         if (advAssign.mainBox.OverlapPoint(mousePos))
         {
-            advAssign.GetComponent<AdventurerAssign>().AssignAdventurer(adventurer, mousePos);
+            advAssign.AssignAdventurer(adventurer, mousePos);
         } 
     }
 
@@ -52,7 +52,7 @@ public class AdventurerPortrait : MonoBehaviour, IPointerDownHandler, IPointerUp
         nameText.text = adventurer.name;
         image.sprite = adventurer.portrait;
         dragSprite.sprite = adventurer.portrait;
-        advAssign = GameObject.Find("AdventurerAssign").GetComponent<AdventurerAssign>();
+        advAssign = GameObject.Find("AdventurerAssign").GetComponent<AdventurerAssignManager>();
     }
 
     // Update is called once per frame
