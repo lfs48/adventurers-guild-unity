@@ -10,7 +10,8 @@ public class QuestUIManager : MonoBehaviour
     public QuestManager questManager;
     public AdventurerAssignManager adventurerAssign;
     private Quest selectedQuest;
-    public QuestUIPanel inactivePanel, activePanel;
+    public QuestUIPanel inactivePanel;
+    public ActiveQuestUIPanel activePanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,10 +41,10 @@ public class QuestUIManager : MonoBehaviour
 
     public void Embark()
     {
-        questManager.ActivateQuest(selectedQuest, adventurerAssign.GetAdventurers() );
+        ActiveQuest activeQuest = questManager.ActivateQuest(selectedQuest, adventurerAssign.GetAdventurers() );
         inactivePanel.Hide();
         activePanel.Show(selectedQuest);
-
+        activePanel.SetQuest(activeQuest);
     }
 
     public void Hide()
