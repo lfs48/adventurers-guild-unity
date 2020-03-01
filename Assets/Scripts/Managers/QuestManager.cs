@@ -4,78 +4,33 @@ using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
-    public Quest quest;
-    public List<Adventurer> adventurers;
-    public List<Trait> traits;
-    public float timer, waitTime;
-    public bool active;
-    public int challengeIndex;
+    private List<ActiveQuest> activeQuests;
+    public ActiveQuest activeQuestPrefab;
+    private Transform tf;
     // Start is called before the first frame update
     void Start()
     {
-        active = false;
-        traits = new List<Trait>();
-        waitTime = 2f;
+        activeQuests = new List<ActiveQuest>();
+        tf = GetComponent<Transform>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (active)
-        {
-            timer -= Time.deltaTime;
-            if (timer <= 0)
-            {
-                bool success = ResolveChallenge(quest.challenges[challengeIndex]);
-                timer = waitTime;
-                if (success)
-                {
-                    challengeIndex++;
-                    if (challengeIndex >= quest.challenges.Count) {
-                        CompleteQuest();
-                    } else {
-                        Debug.Log("Challenge Defeated");
-                    }
-                } else {
-                    Debug.Log("Failed Challenge");
-                }
-            }
-        }
+
     }
 
-    public void Embark()
+    public void ActivateQuest(Quest quest, Adventurer[] adventurers)
     {
-        timer = waitTime;
-        active = true;
-        traits = new List<Trait>();
-        for (int i = 0; i < adventurers.Count; i++)
-        {
-            traits.AddRange(adventurers[i].traits);
-        }
+        ActiveQuest activeQuest = Instantiate(activeQuestPrefab, tf);
+        activeQuest.Initialize(this, quest, adventurers);
+        activeQuests.Add(activeQuest);
+        quest.state = QuestState.Active;
     }
 
-    bool ResolveChallenge(Challenge challenge)
+    public void CompleteQuest(ActiveQuest activeQuest)
     {
-        Trait trait;
-        int value = 0;
-        for (int i = 0; i < traits.Count; i++)
-        {
-            trait = traits[i];
-            if (challenge.relevantTraits.Contains(trait) )
-            {
-                value += trait.value;
-            }
-        }
-        float rng = Random.Range(0.1f,1f);
-        Debug.Log((float) value / (float) challenge.value);
-        return (float) value / (float) challenge.value >= rng;
-    }
-
-    void CompleteQuest()
-    {
-        active = false;
-        challengeIndex = 0;
-        timer = waitTime;
-        Debug.Log("Quest Complete!");
+        activeQuests.Remove(activeQuest);
+        Destroy(activeQuest.gameObject);
     }
 }
