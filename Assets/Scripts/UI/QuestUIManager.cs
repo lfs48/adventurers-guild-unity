@@ -10,6 +10,7 @@ public class QuestUIManager : MonoBehaviour
     public QuestManager questManager;
     public AdventurerAssignManager adventurerAssign;
     private Quest selectedQuest;
+    public QuestUIPanel inactivePanel, activePanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,24 +26,30 @@ public class QuestUIManager : MonoBehaviour
 
     public void SetQuest(Quest quest)
     {
-        nameText.text = quest.name;
-        descriptionText.text = quest.description;
         selectedQuest = quest;
-        Show();
+        if (selectedQuest.state == QuestState.Available)
+        {   
+            inactivePanel.Show(quest);
+            activePanel.Hide();
+        } else if (selectedQuest.state == QuestState.Active)
+        {
+            inactivePanel.Hide();
+            activePanel.Show(quest);
+        }
     }
 
     public void Embark()
     {
         questManager.ActivateQuest(selectedQuest, adventurerAssign.GetAdventurers() );
-    }
+        inactivePanel.Hide();
+        activePanel.Show(selectedQuest);
 
-    public void Show()
-    {
-        rect.localScale = new Vector3(1,1,1);
     }
 
     public void Hide()
     {
-        rect.localScale = new Vector3(0,0,0);
+        activePanel.Hide();
+        inactivePanel.Hide();
     }
+
 }
