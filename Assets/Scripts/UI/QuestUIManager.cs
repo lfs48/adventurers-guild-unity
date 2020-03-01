@@ -7,6 +7,9 @@ public class QuestUIManager : MonoBehaviour
 {
     private RectTransform rect;
     public TextMeshProUGUI nameText, descriptionText;
+    public QuestManager questManager;
+    public AdventurerAssignManager adventurerAssign;
+    private Quest selectedQuest;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +27,13 @@ public class QuestUIManager : MonoBehaviour
     {
         nameText.text = quest.name;
         descriptionText.text = quest.description;
+        selectedQuest = quest;
         Show();
+    }
+
+    public void Embark()
+    {
+        questManager.ActivateQuest(selectedQuest, adventurerAssign.GetAdventurers() );
     }
 
     public void Show()
