@@ -74,7 +74,6 @@ public class ActiveQuest : MonoBehaviour
         timer = waitTime;
         Debug.Log("Quest Complete!");
         quest.state = QuestState.Completed;
-        Debug.Log(this);
         manager.CompleteQuest(this);
     }
 
