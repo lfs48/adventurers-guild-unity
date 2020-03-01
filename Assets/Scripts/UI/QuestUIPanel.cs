@@ -11,7 +11,7 @@ public class QuestUIPanel : MonoBehaviour
 
     void Start()
     {
-        rect = GetComponent<RectTransform>();
+
     }
 
     public void Show(Quest quest)

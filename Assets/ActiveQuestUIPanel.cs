@@ -9,6 +9,8 @@ public class ActiveQuestUIPanel : QuestUIPanel
     private ActiveQuest quest;
     public Slider progress;
     public TextMeshProUGUI questStateText;
+    public List<Image> portraits;
+
     void Update()
     {
         if (!(quest is null)) 
@@ -21,6 +23,14 @@ public class ActiveQuestUIPanel : QuestUIPanel
     public void SetQuest(ActiveQuest quest)
     {
         this.quest = quest;
+    }
+
+    public void SetPortraits(Adventurer[] adventurers)
+    {
+        for (int i = 0; i < adventurers.Length; i++)
+        {
+            portraits[i].sprite = adventurers[i].portrait;
+        }
     }
 }
 

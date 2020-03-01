@@ -45,6 +45,7 @@ public class QuestUIManager : MonoBehaviour
         inactivePanel.Hide();
         activePanel.Show(selectedQuest);
         activePanel.SetQuest(activeQuest);
+        activePanel.SetPortraits( adventurerAssign.GetAdventurers() );
     }
 
     public void Hide()
