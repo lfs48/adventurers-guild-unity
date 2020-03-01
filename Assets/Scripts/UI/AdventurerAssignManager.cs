@@ -53,4 +53,9 @@ public class AdventurerAssignManager : MonoBehaviour
         adventurers[i] = null;
         boxes[i].ClearAdventurer();
     }
+
+    public Adventurer[] GetAdventurers()
+    {
+        return adventurers;
+    }
 }
