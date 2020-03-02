@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class QuestMarker : MonoBehaviour, IPointerDownHandler
+public class QuestMarker : MonoBehaviour
 {
     private QuestUIManager manager;
     private Quest quest;
@@ -19,9 +19,8 @@ public class QuestMarker : MonoBehaviour, IPointerDownHandler
 
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    public void OnMouseDown()
     {
-        Debug.Log("Hit");
         manager.SetQuest(quest);
     }
 
