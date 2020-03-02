@@ -43,12 +43,21 @@ public class QuestManager : MonoBehaviour
         possibleQuests.Remove(quest);
     }
 
+    public void OpenQuest(Quest quest)
+    {
+
+    }
+
     public ActiveQuest ActivateQuest(Quest quest, Adventurer[] adventurers)
     {
         ActiveQuest activeQuest = Instantiate(activeQuestPrefab, tf);
         activeQuest.Initialize(this, quest, adventurers);
         activeQuests.Add(activeQuest);
         quest.state = QuestState.Active;
+        for (int i = 0; i < adventurers.Length; i++)
+        {
+            adventurers[i].state = AdventurerState.Questing;
+        }
         return activeQuest;
     }
 
