@@ -11,7 +11,7 @@ public enum AdventurerState
 public class Adventurer : ScriptableObject
 {
     public new string name;
-    public int level;
+    public int level, maxHP, currentHP;
     public Sprite portrait, sprite;
     public Race race;
     public AdventurerClass adventurerClass;
