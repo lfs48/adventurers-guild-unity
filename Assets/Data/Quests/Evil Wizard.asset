@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e24cbe42a31a98468eda9656ede1d2c, type: 3}
+  m_Name: Evil Wizard
+  m_EditorClassIdentifier: 
+  name: Evil Wizard
+  description: Defeat an evil wizard.
+  challenges:
+  - {fileID: 11400000, guid: 55f29c8f7504e1a459c1dd585c49779c, type: 2}
+  - {fileID: 11400000, guid: 5faae4a2bb08d274ca80533410d1bf2f, type: 2}
+  - {fileID: 11400000, guid: 661e700064b505d449981f55d2b7f0c4, type: 2}
+  state: 0
+  location: {x: 200, y: 200, z: 1}
