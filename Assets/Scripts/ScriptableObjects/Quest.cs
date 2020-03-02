@@ -14,4 +14,5 @@ public class Quest : ScriptableObject
     public string description;
     public List<Challenge> challenges;
     public QuestState state;
+    public Vector3 location;
 }
