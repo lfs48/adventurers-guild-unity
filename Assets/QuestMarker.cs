@@ -24,7 +24,10 @@ public class QuestMarker : MonoBehaviour
 
     public void OnMouseDown()
     {
-        manager.SetQuest(quest);
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            manager.SetQuest(quest);
+        }
     }
 
     public void SetQuest(Quest quest)
