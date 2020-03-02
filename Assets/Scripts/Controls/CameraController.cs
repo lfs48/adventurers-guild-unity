@@ -23,7 +23,7 @@ public class CameraController : MonoBehaviour
 
     private void InitializeSettings()
     {
-        panSpeed = 0.01f;
+        panSpeed = 5f;
         scrollSpeed = 500f;
         zoomLimitMin = 2f;
         zoomLimitMax = 10f;
@@ -41,7 +41,7 @@ public class CameraController : MonoBehaviour
             if (dragging && Input.GetMouseButton(0))
             {
                 Vector3 direction = touchStart - camera.ScreenToWorldPoint(Input.mousePosition);
-                pos += direction * panSpeed;
+                pos += direction * panSpeed * Time.deltaTime;
                 dragging = true;
             }
             if (Input.GetMouseButtonUp(0))
