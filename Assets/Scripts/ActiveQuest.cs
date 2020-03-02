@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum ActiveQuestState
 {
-    Embarking, AttemptingChallenge, DefeatedChallenge, FailedChallenge, Success
+    Embarking, AttemptingChallenge, DefeatedChallenge, FailedChallenge, Success, Failure
 }
 
 public class ActiveQuest : MonoBehaviour
@@ -80,6 +80,12 @@ public class ActiveQuest : MonoBehaviour
     {
         state = ActiveQuestState.FailedChallenge;
         timer = waitTime / 2;
+        int rng = Random.Range(0, adventurers.Length - 1);
+        adventurers[rng].currentHP -= 1;
+        if (adventurers[rng].currentHP <= 0)
+        {
+            FailQuest();
+        }
     }
 
     bool ResolveChallenge(Challenge challenge)
@@ -110,6 +116,17 @@ public class ActiveQuest : MonoBehaviour
         }
     }
 
+    void FailQuest()
+    {
+        state = ActiveQuestState.Failure;
+        timer = waitTime / 2;
+        quest.state = QuestState.Available;
+        for (int i = 0; i < adventurers.Length; i++)
+        {
+            adventurers[i].state = AdventurerState.Available;
+        }
+    }
+
     void EndQuest()
     {
         manager.CompleteQuest(this);
@@ -129,6 +146,7 @@ public class ActiveQuest : MonoBehaviour
             case ActiveQuestState.DefeatedChallenge: return $"Defeated challenge: {quest.challenges[challengeIndex - 1].name}";
             case ActiveQuestState.FailedChallenge: return $"Failed challenge: {quest.challenges[challengeIndex].name}";
             case ActiveQuestState.Success: return "Quest complete! Bringing home loot";
+            case ActiveQuestState.Failure: return "The group has failed and is forced to abandon their quest.";
 
             default: return "";
         }
