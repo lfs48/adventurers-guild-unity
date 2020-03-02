@@ -65,6 +65,8 @@ public class AdventurerManager : MonoBehaviour
         adv.adventurerClass = RandomClass();
         adv.name = RandomName();
         adv.level = 1;
+        adv.maxHP = 2;
+        adv.currentHP = 2;
         int rng = Random.Range(0, sprites.Length);
         adv.sprite = sprites[rng];
         adv.portrait = portraits[rng];
