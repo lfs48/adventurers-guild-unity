@@ -16,7 +16,10 @@ public class QuestMarker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (quest.state == QuestState.Completed)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public void OnMouseDown()
