@@ -16,6 +16,7 @@ public class AdventurerPortrait : MonoBehaviour, IPointerDownHandler, IPointerUp
     public TextMeshProUGUI nameText;
     public WindowController windowController;
     public AdventurerAssignManager advAssign;
+    public Slider hpBar;
     private bool drag;
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -62,6 +63,8 @@ public class AdventurerPortrait : MonoBehaviour, IPointerDownHandler, IPointerUp
         nameText.text = adventurer.name;
         image.sprite = adventurer.portrait;
         dragSprite.sprite = adventurer.portrait;
+        hpBar.maxValue = adventurer.maxHP;
+        hpBar.value = adventurer.currentHP;
         advAssign = GameObject.Find("AdventurerAssign").GetComponent<AdventurerAssignManager>();
     }
 
@@ -82,6 +85,7 @@ public class AdventurerPortrait : MonoBehaviour, IPointerDownHandler, IPointerUp
                 grayOut.color = temp;
                 break;
         }
+        hpBar.value = adventurer.currentHP;
     }
 
     public void OnDrag(PointerEventData eventData)
