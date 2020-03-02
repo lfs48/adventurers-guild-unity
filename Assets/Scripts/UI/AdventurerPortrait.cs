@@ -86,6 +86,17 @@ public class AdventurerPortrait : MonoBehaviour, IPointerDownHandler, IPointerUp
                 break;
         }
         hpBar.value = adventurer.currentHP;
+        Image hpImage = hpBar.fillRect.GetComponent<Image>();
+        if ( (float) adventurer.currentHP / (float) adventurer.maxHP > 0.5)
+        {
+            hpImage.color = Color.green;
+        } else if ( (float) adventurer.currentHP / (float) adventurer.maxHP > 0.2)
+        {
+            hpImage.color = Color.yellow;
+        } else
+        {
+            hpImage.color = Color.red;
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
