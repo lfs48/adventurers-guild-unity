@@ -104,6 +104,10 @@ public class ActiveQuest : MonoBehaviour
         timer = waitTime / 2;
         challengeIndex++;
         quest.state = QuestState.Completed;
+        for (int i = 0; i < adventurers.Length; i++)
+        {
+            adventurers[i].state = AdventurerState.Available;
+        }
     }
 
     void EndQuest()
