@@ -9,4 +9,5 @@ public class Challenge : ScriptableObject
     public string description;
     public int value;
     public List<Trait> relevantTraits;
+    public Sprite icon;
 }
