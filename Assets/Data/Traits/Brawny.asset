@@ -16,3 +16,4 @@ MonoBehaviour:
   description: Able to duke it out in a fistfight.
   source: Class
   value: 2
+  icon: {fileID: -3451923725099590703, guid: 5cbfd17dc5df6324fa6e29f2d4049fc1, type: 3}

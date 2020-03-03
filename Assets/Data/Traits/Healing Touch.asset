@@ -16,3 +16,4 @@ MonoBehaviour:
   description: Can wield healing magic to close grievous wounds.
   source: Class
   value: 3
+  icon: {fileID: -4398002872861096285, guid: 5cbfd17dc5df6324fa6e29f2d4049fc1, type: 3}

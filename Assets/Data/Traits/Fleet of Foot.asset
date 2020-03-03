@@ -16,3 +16,4 @@ MonoBehaviour:
   description: placeholder
   source: Race
   value: 2
+  icon: {fileID: -2696506250795634678, guid: 5cbfd17dc5df6324fa6e29f2d4049fc1, type: 3}

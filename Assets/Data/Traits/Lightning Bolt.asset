@@ -17,3 +17,4 @@ MonoBehaviour:
     enemies.
   source: Class
   value: 5
+  icon: {fileID: -2132297305964241120, guid: 5cbfd17dc5df6324fa6e29f2d4049fc1, type: 3}

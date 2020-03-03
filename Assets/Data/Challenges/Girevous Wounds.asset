@@ -18,3 +18,4 @@ MonoBehaviour:
   relevantTraits:
   - {fileID: 11400000, guid: 4a1e5b7eae775ff46b16b9173f2b26ff, type: 2}
   - {fileID: 11400000, guid: ce565a93a511c0242ba4528c7bc9b014, type: 2}
+  icon: {fileID: 8890533060992490834, guid: 5cbfd17dc5df6324fa6e29f2d4049fc1, type: 3}
