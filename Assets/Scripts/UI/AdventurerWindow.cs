@@ -9,7 +9,6 @@ public class AdventurerWindow : ControlledWindow
     public Image imageRenderer;
     public TextMeshProUGUI nameText, bioText;
     public Image[] raceTraits, classTraits;
-    public GameObject traitIconPrefab;
 
     public void SetAdventurer(Adventurer adventurer)
     {
