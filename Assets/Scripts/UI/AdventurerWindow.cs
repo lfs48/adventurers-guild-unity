@@ -1,20 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class AdventurerWindow : ControlledWindow
 {
-    public SpriteRenderer spriteRenderer;
-    public TextMeshProUGUI nameText, bioText, raceTraitsText, classTraitsText;
+    public Image imageRenderer;
+    public TextMeshProUGUI nameText, bioText;
+    public Image[] raceTraits, classTraits;
+    public GameObject traitIconPrefab;
 
     public void SetAdventurer(Adventurer adventurer)
     {
-        spriteRenderer.sprite = adventurer.sprite;
+        imageRenderer.sprite = adventurer.sprite;
         nameText.text = adventurer.name;
         bioText.text = $"Level {adventurer.level} {adventurer.race} {adventurer.adventurerClass}";
-        raceTraitsText.text = "";
-        classTraitsText.text = "";
         Trait trait;
         for (int i = 0; i < adventurer.traits.Count; i++)
         {
@@ -23,12 +24,12 @@ public class AdventurerWindow : ControlledWindow
             {
                 case("Race"): 
                 {
-                    raceTraitsText.text += $"\n {trait.name}: {trait.description}";
+                    raceTraits[i].sprite = trait.icon;
                     break;
                 }
                 case("Class"):
                 {
-                    classTraitsText.text += $"\n {trait.name}: {trait.description}";
+                    classTraits[i].sprite = trait.icon;
                     break;
                 }
                 default: break;

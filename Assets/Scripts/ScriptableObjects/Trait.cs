@@ -7,4 +7,5 @@ public class Trait : ScriptableObject
 {
     public string name, description, source;
     public int value;
+    public Sprite icon;
 }
