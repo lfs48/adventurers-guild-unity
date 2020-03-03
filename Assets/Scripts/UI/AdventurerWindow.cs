@@ -16,6 +16,8 @@ public class AdventurerWindow : ControlledWindow
         nameText.text = adventurer.name;
         bioText.text = $"Level {adventurer.level} {adventurer.race} {adventurer.adventurerClass}";
         Trait trait;
+        int raceIdx = 0;
+        int classIdx = 0;
         for (int i = 0; i < adventurer.traits.Count; i++)
         {
             trait = adventurer.traits[i];
@@ -23,12 +25,14 @@ public class AdventurerWindow : ControlledWindow
             {
                 case("Race"): 
                 {
-                    raceTraits[i].sprite = trait.icon;
+                    raceTraits[raceIdx].sprite = trait.icon;
+                    raceIdx++;
                     break;
                 }
                 case("Class"):
                 {
-                    classTraits[i].sprite = trait.icon;
+                    classTraits[classIdx].sprite = trait.icon;
+                    classIdx++;
                     break;
                 }
                 default: break;
