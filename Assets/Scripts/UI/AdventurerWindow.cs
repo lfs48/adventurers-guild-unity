@@ -8,7 +8,7 @@ public class AdventurerWindow : ControlledWindow
 {
     public Image imageRenderer;
     public TextMeshProUGUI nameText, bioText;
-    public Image[] raceTraits, classTraits;
+    public TraitIcon[] raceTraits, classTraits;
 
     public void SetAdventurer(Adventurer adventurer)
     {
@@ -25,13 +25,13 @@ public class AdventurerWindow : ControlledWindow
             {
                 case("Race"): 
                 {
-                    raceTraits[raceIdx].sprite = trait.icon;
+                    raceTraits[raceIdx].SetTrait(trait);
                     raceIdx++;
                     break;
                 }
                 case("Class"):
                 {
-                    classTraits[classIdx].sprite = trait.icon;
+                    classTraits[classIdx].SetTrait(trait);
                     classIdx++;
                     break;
                 }
