@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Human Spirit
   m_EditorClassIdentifier: 
   name: Human Spirit
-  description: placeholder
+  description: Humans have a natural force of will that lets them resist darkness
+    and corruption.
   source: Race
   value: 2
   icon: {fileID: -2652327829572825525, guid: 5cbfd17dc5df6324fa6e29f2d4049fc1, type: 3}

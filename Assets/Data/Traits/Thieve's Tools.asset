@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24acb8b5336520f4c8895886b76e50f0, type: 3}
   m_Name: Thieve's Tools
   m_EditorClassIdentifier: 
-  name: 
-  description: 
-  source: 
-  value: 0
-  icon: {fileID: 0}
+  name: Thieve's Tools
+  description: Proficient with a set of tools suitable for picking locks and disarming
+    traps.
+  source: Class
+  value: 2
+  icon: {fileID: 5137563035925690347, guid: 5cbfd17dc5df6324fa6e29f2d4049fc1, type: 3}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Brawny
   m_EditorClassIdentifier: 
   name: Brawny
-  description: Able to duke it out in a fistfight.
-  source: Class
+  description: Orcs are naturally though and durable.
+  source: Race
   value: 2
   icon: {fileID: -3451923725099590703, guid: 5cbfd17dc5df6324fa6e29f2d4049fc1, type: 3}

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24acb8b5336520f4c8895886b76e50f0, type: 3}
   m_Name: Cleave
   m_EditorClassIdentifier: 
-  name: 
-  description: 
-  source: 
-  value: 0
-  icon: {fileID: 0}
+  name: Cleave
+  description: A manuever for dispatching groups of weak foes.
+  source: Class
+  value: 2
+  icon: {fileID: 3365221084049506789, guid: 5cbfd17dc5df6324fa6e29f2d4049fc1, type: 3}

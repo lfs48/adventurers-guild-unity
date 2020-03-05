@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Small and Slippery
   m_EditorClassIdentifier: 
   name: Small and Slippery
-  description: placeholder
+  description: Gnomes leverage their small size to slip out of sticky situations.
   source: Race
   value: 2
   icon: {fileID: -4956809556694966118, guid: 5cbfd17dc5df6324fa6e29f2d4049fc1, type: 3}

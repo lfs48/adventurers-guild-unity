@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dwarven Resilience
   m_EditorClassIdentifier: 
   name: Dwarven Fortitude
-  description: placeholder
+  description: Dwarves' stony skin lets them resist otherwise terrible blows.
   source: Race
   value: 2
   icon: {fileID: -1290855366162983238, guid: 5cbfd17dc5df6324fa6e29f2d4049fc1, type: 3}
