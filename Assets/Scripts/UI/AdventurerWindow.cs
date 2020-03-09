@@ -8,7 +8,7 @@ public class AdventurerWindow : ControlledWindow
 {
     public Image imageRenderer;
     public TextMeshProUGUI nameText, bioText;
-    public TraitIcon[] raceTraits, classTraits;
+    public MouseoverIcon[] raceTraits, classTraits;
 
     public void SetAdventurer(Adventurer adventurer)
     {
@@ -25,13 +25,15 @@ public class AdventurerWindow : ControlledWindow
             {
                 case("Race"): 
                 {
-                    raceTraits[raceIdx].SetTrait(trait);
+                    raceTraits[raceIdx].SetTooltip(trait);
+                    raceTraits[raceIdx].SetIcon(trait.icon);
                     raceIdx++;
                     break;
                 }
                 case("Class"):
                 {
-                    classTraits[classIdx].SetTrait(trait);
+                    classTraits[classIdx].SetTooltip(trait);
+                    classTraits[classIdx].SetIcon(trait.icon);
                     classIdx++;
                     break;
                 }

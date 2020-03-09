@@ -40,9 +40,9 @@ public class Tooltip : MonoBehaviour
         rt.localScale = new Vector3(0,0,0);
     }
 
-    public static void ShowTooltip(Trait trait, Vector3 pos)
+    public static void ShowTooltip(Tooltipable source, Vector3 pos)
     {
-        instance.Show(trait, pos);
+        instance.Show(source, pos);
     }
 
     public static void HideTooltip()

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TraitIcon : MonoBehaviour
+public class MouseoverIcon : MonoBehaviour
 {
-    private Trait trait;
+    private Tooltipable tooltip;
     public Image icon;
 
     // Start is called before the first frame update
@@ -22,8 +22,8 @@ public class TraitIcon : MonoBehaviour
 
     public void OnMouseEnter()
     {
-        Vector3 pos = transform.position + new Vector3(2f, -1f, 0f);
-        Tooltip.ShowTooltip(trait, pos);
+        Vector3 pos = Camera.main.ScreenToWorldPoint( Camera.main.WorldToScreenPoint(transform.position)  + new Vector3(0f, -120f, 0f) );
+        Tooltip.ShowTooltip(tooltip, pos);
     }
 
     public void OnMouseExit()
@@ -31,10 +31,14 @@ public class TraitIcon : MonoBehaviour
         Tooltip.HideTooltip();
     }
 
-    public void SetTrait(Trait trait)
+    public void SetTooltip(Tooltipable tooltip)
     {
         transform.localScale = new Vector3(1,1,1);
-        this.trait = trait;
-        icon.sprite = trait.icon;
+        this.tooltip = tooltip;
+    }
+
+    public void SetIcon(Sprite sprite)
+    {
+        icon.sprite = sprite;
     }
 }
