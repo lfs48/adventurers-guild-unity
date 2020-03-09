@@ -10,7 +10,7 @@ public class QuestUIPanel : MonoBehaviour
     public RectTransform rect;
     public TextMeshProUGUI nameText, descText;
 
-    public Image[] challengeIcons;
+    public MouseoverIcon[] challengeIcons;
 
     void Start()
     {
@@ -22,9 +22,12 @@ public class QuestUIPanel : MonoBehaviour
         rect.localScale = new Vector3(1,1,1);
         nameText.text = quest.name;
         descText.text = quest.description;
+        Challenge challenge;
         for (int i = 0; i < quest.challenges.Count; i++)
         {
-            challengeIcons[i].sprite = quest.challenges[i].icon;
+            challenge = quest.challenges[i];
+            challengeIcons[i].SetTooltip(challenge);
+            challengeIcons[i].SetIcon(challenge.icon);
         }
     }
 
