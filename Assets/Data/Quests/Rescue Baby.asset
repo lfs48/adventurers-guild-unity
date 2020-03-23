@@ -18,5 +18,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e6dfd4ec095f91e4191c7c4c7f0e293c, type: 2}
   - {fileID: 11400000, guid: 661e700064b505d449981f55d2b7f0c4, type: 2}
   - {fileID: 11400000, guid: 5faae4a2bb08d274ca80533410d1bf2f, type: 2}
-  state: 1
+  state: 0
   location: {x: -1200, y: -100, z: 1}

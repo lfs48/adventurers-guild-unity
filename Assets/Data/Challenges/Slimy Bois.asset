@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9088e2e1dc134f4795007b113538c4c, type: 3}
   m_Name: Slimy Bois
   m_EditorClassIdentifier: 
-  name: Slimy Bois
-  description: 
+  name: Aquatic Foes
+  description: The party will face off against foes who lurk submerged in water.
   value: 4
   relevantTraits:
   - {fileID: 11400000, guid: fb93e13c26df3d34d86b03d635dc9e8f, type: 2}

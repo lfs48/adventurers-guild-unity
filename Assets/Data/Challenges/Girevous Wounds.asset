@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Girevous Wounds
   m_EditorClassIdentifier: 
   name: Grievous Wounds
-  description: 
+  description: These foes can inflict deep wounds. The party must have a means of
+    healing these, lest they bleed out.
   value: 4
   relevantTraits:
   - {fileID: 11400000, guid: 4a1e5b7eae775ff46b16b9173f2b26ff, type: 2}

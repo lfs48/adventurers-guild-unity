@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Big Brute
   m_EditorClassIdentifier: 
   name: Big Brute
-  description: 
-  value: 2
+  description: A tall, menacing foe stands in their path. They will require someone
+    similarly formidable to match it.
+  value: 4
   relevantTraits:
   - {fileID: 11400000, guid: 16fab49b80b7f064da818ab7013241fe, type: 2}
   icon: {fileID: 8695200591083639210, guid: 5cbfd17dc5df6324fa6e29f2d4049fc1, type: 3}

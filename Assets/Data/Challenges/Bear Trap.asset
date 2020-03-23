@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9088e2e1dc134f4795007b113538c4c, type: 3}
   m_Name: Bear Trap
   m_EditorClassIdentifier: 
-  name: Bear Trap
-  description: 
-  value: 3
+  name: Rope Trap
+  description: A rope trap lies concealed on the path, ready to ensnare clumsy adventurers.
+  value: 4
   relevantTraits:
   - {fileID: 11400000, guid: a18111517840443429972c58d54c38e6, type: 2}
   - {fileID: 11400000, guid: abff493294f1be141807c7d8a5774119, type: 2}
